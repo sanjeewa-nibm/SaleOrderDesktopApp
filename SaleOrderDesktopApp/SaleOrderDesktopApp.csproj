@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -78,6 +79,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SalesOrderDataManager\SalesOrderDataManager.csproj">
+      <Project>{5e5bd1ce-9e1b-4186-beaa-528a55b3cf12}</Project>
+      <Name>SalesOrderDataManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SalesOrderSharedLib\SalesOrderSharedLib.csproj">
+      <Project>{549026e4-4570-472b-9c3b-adc8c79990a0}</Project>
+      <Name>SalesOrderSharedLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
