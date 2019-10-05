@@ -34,7 +34,39 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
 
         public Customer GetCustomerByID(int ID)
         {
-            throw new NotImplementedException();
+            Customer _results;
+            try
+            {
+                using (SODBContext db = new SODBContext())
+                {
+                    _results = db.Customers.Find(ID);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return _results;
+        }
+
+        public Customer GetCustomerByName(string Name)
+        {
+            Customer _results;
+            try
+            {
+                using (SODBContext db = new SODBContext())
+                {
+                    _results = db.Customers.Where(x => x.CustName == Name).FirstOrDefault();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return _results;
         }
 
         public void DisposeCustomer()
