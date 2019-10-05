@@ -14,9 +14,13 @@ namespace SalesOrderDataManager
     {
         public SODBContext() : base("CommonContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            //Configuration.ProxyCreationEnabled = true;
+
             var ensureDllIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
 
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<SODBContext, Configuration>());
+
 
         }
         public virtual DbSet<CustomerCity> CustomerCities { get; set; }

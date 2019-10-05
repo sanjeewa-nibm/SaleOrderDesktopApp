@@ -39,7 +39,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxCity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbCustomerName = new System.Windows.Forms.ComboBox();
             this.textBoxCustomerID = new System.Windows.Forms.TextBox();
@@ -70,7 +70,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.textBoxCity);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.cmbCustomerName);
             this.panel1.Controls.Add(this.textBoxCustomerID);
@@ -85,15 +85,15 @@
             // dateTimePicker4
             // 
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(831, 144);
+            this.dateTimePicker4.Location = new System.Drawing.Point(796, 144);
             this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(99, 20);
+            this.dateTimePicker4.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker4.TabIndex = 17;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(754, 144);
+            this.label8.Location = new System.Drawing.Point(726, 148);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 13);
             this.label8.TabIndex = 16;
@@ -102,15 +102,15 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(828, 109);
+            this.dateTimePicker3.Location = new System.Drawing.Point(796, 109);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(99, 20);
+            this.dateTimePicker3.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker3.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(751, 109);
+            this.label7.Location = new System.Drawing.Point(717, 113);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 14;
@@ -120,15 +120,15 @@
             // 
             this.cmbSalesPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSalesPerson.FormattingEnabled = true;
-            this.cmbSalesPerson.Location = new System.Drawing.Point(621, 76);
+            this.cmbSalesPerson.Location = new System.Drawing.Point(796, 76);
             this.cmbSalesPerson.Name = "cmbSalesPerson";
-            this.cmbSalesPerson.Size = new System.Drawing.Size(308, 21);
+            this.cmbSalesPerson.Size = new System.Drawing.Size(136, 21);
             this.cmbSalesPerson.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(515, 79);
+            this.label6.Location = new System.Drawing.Point(713, 80);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 11;
@@ -137,15 +137,15 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(828, 42);
+            this.dateTimePicker2.Location = new System.Drawing.Point(796, 42);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(99, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker2.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(751, 42);
+            this.label5.Location = new System.Drawing.Point(714, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 9;
@@ -154,26 +154,26 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(828, 14);
+            this.dateTimePicker1.Location = new System.Drawing.Point(796, 14);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(99, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker1.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(769, 17);
+            this.label4.Location = new System.Drawing.Point(732, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Doc Date";
             // 
-            // textBox3
+            // textBoxCity
             // 
-            this.textBox3.Location = new System.Drawing.Point(77, 76);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(41, 20);
-            this.textBox3.TabIndex = 6;
+            this.textBoxCity.Location = new System.Drawing.Point(77, 76);
+            this.textBoxCity.Name = "textBoxCity";
+            this.textBoxCity.Size = new System.Drawing.Size(41, 20);
+            this.textBoxCity.TabIndex = 6;
             // 
             // label3
             // 
@@ -335,7 +335,7 @@
         private System.Windows.Forms.TextBox textBoxCustomerID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbCustomerName;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxCity;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label4;

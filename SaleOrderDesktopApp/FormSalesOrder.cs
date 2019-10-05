@@ -15,7 +15,10 @@ namespace SaleOrderDesktopApp
     public partial class FormSalesOrder : Form
     {
         IEnumerable<Customer> _CustomerList ;
+        IEnumerable<SalesPerson> _SalesPersonList;
+
         CustomerSharedManager _CustShareMgr = new CustomerSharedManager();
+        SalesPersonSharedManager _SalesPersonShareMgr = new SalesPersonSharedManager();
 
         #region Constructor
         public FormSalesOrder()
@@ -25,6 +28,26 @@ namespace SaleOrderDesktopApp
         #endregion
 
         #region Methods
+        private void LoadAllCustomers()
+        {
+            _CustomerList = _CustShareMgr.LoadAllCustomers();
+
+            foreach (var item in _CustomerList)
+            {
+                cmbCustomerName.Items.Add(item.CustName);
+            }
+
+        }
+        private void LoadAllSalesPerson()
+        {
+            _SalesPersonList = _SalesPersonShareMgr.LoadAllSalesPersons();
+
+            foreach (var item in _SalesPersonList)
+            {
+                cmbSalesPerson.Items.Add(item.Name);
+            }
+
+        }
         #endregion
 
         #region Events
@@ -45,12 +68,8 @@ namespace SaleOrderDesktopApp
         {
             try
             {
-                _CustomerList = _CustShareMgr.LoadAllCustomers();
-
-                foreach (var item in _CustomerList)
-                {
-                    cmbCustomerName.Items.Add(item.CustName);
-                }
+                LoadAllCustomers();
+                LoadAllSalesPerson();
             }
             catch (Exception ex)
             {
@@ -67,7 +86,7 @@ namespace SaleOrderDesktopApp
                     //MessageBox.Show(cmbCustomerName.SelectedItem.ToString());
                     Customer _cust =  _CustShareMgr.LoadCustomerByName(cmbCustomerName.SelectedItem.ToString());
                     textBoxCustomerID.Text = _cust.Id.ToString();
-
+                    textBoxCity.Text = _cust.CustomerCity.CityName.ToString();
                 }
 
             }

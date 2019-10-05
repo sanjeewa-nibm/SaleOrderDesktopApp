@@ -53,11 +53,17 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
         public Customer GetCustomerByName(string Name)
         {
             Customer _results;
+
             try
             {
                 using (SODBContext db = new SODBContext())
                 {
-                    _results = db.Customers.Where(x => x.CustName == Name).FirstOrDefault();
+                    _results = db.Customers
+                                           .Include("CustomerCity")
+                                           .Where(x => x.CustName == Name)
+                                           .FirstOrDefault();
+
+                    //_results = db.Customers.Where(x => x.CustName == Name).FirstOrDefault();
 
                 }
             }
