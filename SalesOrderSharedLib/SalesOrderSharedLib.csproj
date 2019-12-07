@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerSharedManager.cs" />
+    <Compile Include="ItemSharedManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalesPersonSharedManager.cs" />
+    <Compile Include="SOHeaderSharedManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SalesOrderDataManager\SalesOrderDataManager.csproj">

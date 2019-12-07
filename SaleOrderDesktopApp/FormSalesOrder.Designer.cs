@@ -44,7 +44,7 @@
             this.cmbCustomerName = new System.Windows.Forms.ComboBox();
             this.textBoxCustomerID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxSalesOrderID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -54,8 +54,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.dgSODetails = new System.Windows.Forms.DataGridView();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSODetails)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,7 +80,7 @@
             this.panel1.Controls.Add(this.cmbCustomerName);
             this.panel1.Controls.Add(this.textBoxCustomerID);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textBoxSalesOrderID);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(11, 8);
             this.panel1.Name = "panel1";
@@ -211,14 +216,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Customer";
             // 
-            // textBox1
+            // textBoxSalesOrderID
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(41, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TabStop = false;
+            this.textBoxSalesOrderID.Location = new System.Drawing.Point(77, 14);
+            this.textBoxSalesOrderID.Name = "textBoxSalesOrderID";
+            this.textBoxSalesOrderID.ReadOnly = true;
+            this.textBoxSalesOrderID.Size = new System.Drawing.Size(41, 20);
+            this.textBoxSalesOrderID.TabIndex = 1;
+            this.textBoxSalesOrderID.TabStop = false;
             // 
             // label1
             // 
@@ -279,9 +284,10 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.dgSODetails);
             this.panel3.Location = new System.Drawing.Point(11, 206);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(954, 116);
+            this.panel3.Size = new System.Drawing.Size(954, 128);
             this.panel3.TabIndex = 19;
             // 
             // buttonSave
@@ -304,6 +310,32 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // dgSODetails
+            // 
+            this.dgSODetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSODetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Item,
+            this.Description});
+            this.dgSODetails.Location = new System.Drawing.Point(4, 7);
+            this.dgSODetails.Name = "dgSODetails";
+            this.dgSODetails.Size = new System.Drawing.Size(928, 107);
+            this.dgSODetails.TabIndex = 0;
+            this.dgSODetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            // 
+            // Item
+            // 
+            this.Item.Frozen = true;
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            // 
+            // Description
+            // 
+            this.Description.Frozen = true;
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 200;
+            // 
             // FormSalesOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,18 +351,20 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Demo Sales Order";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FormSalesOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgSODetails)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxSalesOrderID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxCustomerID;
         private System.Windows.Forms.Label label2;
@@ -355,6 +389,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.DataGridView dgSODetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
     }
 }
 

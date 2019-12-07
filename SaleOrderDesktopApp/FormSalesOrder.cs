@@ -19,6 +19,7 @@ namespace SaleOrderDesktopApp
 
         CustomerSharedManager _CustShareMgr = new CustomerSharedManager();
         SalesPersonSharedManager _SalesPersonShareMgr = new SalesPersonSharedManager();
+        SOHeaderSharedManager _SOHeaderSharedMgr = new SOHeaderSharedManager();
 
         #region Constructor
         public FormSalesOrder()
@@ -48,6 +49,18 @@ namespace SaleOrderDesktopApp
             }
 
         }
+        private void LoadSODocumentNo()
+        {
+            try
+            {
+                textBoxSalesOrderID.Text = _SOHeaderSharedMgr.GetSOHeaderDocNo().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
         #endregion
 
         #region Events
@@ -60,19 +73,6 @@ namespace SaleOrderDesktopApp
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message.ToString());
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                LoadAllCustomers();
-                LoadAllSalesPerson();
-            }
-            catch (Exception ex)
-            {
                 MessageBox.Show(ex.Message.ToString());
             }
         }
@@ -109,7 +109,46 @@ namespace SaleOrderDesktopApp
             }
 
         }
+        private void FormSalesOrder_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadAllCustomers();
+                LoadAllSalesPerson();
+                LoadSODocumentNo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
 
         #endregion
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dgSODetails.CurrentCell != null)
+                {
+                    if (e.RowIndex != -1)
+                    {
+                        if (dgSODetails.CurrentCell.ColumnIndex == 0)
+                        {
+                            //if (_currentSalaryTrans != null)
+                            //{
+                            //    //_currentSalaryTrans.ValidateAmountRate();
+                            //}
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Salary Transactions",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+        }
     }
 }
