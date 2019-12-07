@@ -125,7 +125,8 @@ namespace SaleOrderDesktopApp
 
         #endregion
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+      
+        private void dgSODetails_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             try
             {

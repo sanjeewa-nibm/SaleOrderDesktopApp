@@ -17,11 +17,11 @@ namespace SalesOrderSharedLib
             _item = new ItemManager();
         }
 
-        public Item LoadCustomerByName(string _name)
+        public Item LoadItemByName(string _name)
         {
             try
             {
-                return _item.GetItemByID(_name);
+                return _item.GetItemByName(_name);
             }
             catch (Exception ex)
             {

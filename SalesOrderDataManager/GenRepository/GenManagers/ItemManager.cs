@@ -47,7 +47,7 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
             throw new NotImplementedException();
         }
 
-        public Item GetCustomerByName(string Name)
+        public Item GetItemByName(string Name)
         {
             Item _results;
 

@@ -52,11 +52,11 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
             this.dgSODetails = new System.Windows.Forms.DataGridView();
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -290,6 +290,32 @@
             this.panel3.Size = new System.Drawing.Size(954, 128);
             this.panel3.TabIndex = 19;
             // 
+            // dgSODetails
+            // 
+            this.dgSODetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSODetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Item,
+            this.Description});
+            this.dgSODetails.Location = new System.Drawing.Point(4, 7);
+            this.dgSODetails.Name = "dgSODetails";
+            this.dgSODetails.Size = new System.Drawing.Size(928, 107);
+            this.dgSODetails.TabIndex = 0;
+            this.dgSODetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSODetails_CellValueChanged);
+            // 
+            // Item
+            // 
+            this.Item.Frozen = true;
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            // 
+            // Description
+            // 
+            this.Description.Frozen = true;
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 200;
+            // 
             // buttonSave
             // 
             this.buttonSave.Location = new System.Drawing.Point(12, 419);
@@ -309,32 +335,6 @@
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // dgSODetails
-            // 
-            this.dgSODetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSODetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Item,
-            this.Description});
-            this.dgSODetails.Location = new System.Drawing.Point(4, 7);
-            this.dgSODetails.Name = "dgSODetails";
-            this.dgSODetails.Size = new System.Drawing.Size(928, 107);
-            this.dgSODetails.TabIndex = 0;
-            this.dgSODetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            // 
-            // Item
-            // 
-            this.Item.Frozen = true;
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            // 
-            // Description
-            // 
-            this.Description.Frozen = true;
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 200;
             // 
             // FormSalesOrder
             // 
