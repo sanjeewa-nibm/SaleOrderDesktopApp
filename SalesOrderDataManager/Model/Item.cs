@@ -8,6 +8,7 @@ namespace  SalesOrderDataManager.Model
     public class Item
     {
         public int Id { get; set; }
+        public string ItemCode { get; set; }
         public string ItemDescription { get; set; }
         public int StockQuantity { get; set; }
         public decimal UnitPrice { get; set; }

@@ -20,6 +20,7 @@ namespace SaleOrderDesktopApp
         CustomerSharedManager _CustShareMgr = new CustomerSharedManager();
         SalesPersonSharedManager _SalesPersonShareMgr = new SalesPersonSharedManager();
         SOHeaderSharedManager _SOHeaderSharedMgr = new SOHeaderSharedManager();
+        ItemSharedManager _ItemShareMgr = new ItemSharedManager();
 
         #region Constructor
         public FormSalesOrder()
@@ -136,17 +137,29 @@ namespace SaleOrderDesktopApp
                     {
                         if (dgSODetails.CurrentCell.ColumnIndex == 0)
                         {
-                            //if (_currentSalaryTrans != null)
-                            //{
-                            //    //_currentSalaryTrans.ValidateAmountRate();
-                            //}
+                            Item _item;
+
+
+                            string _ItemCode= dgSODetails.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                           _item  = _ItemShareMgr.LoadItemByCode(_ItemCode);
+                            if (_item != null)
+                            {
+                                dgSODetails.Rows[e.RowIndex].Cells[1].Value = _item.ItemDescription;
+                            }
+                            else
+                            {
+                                dgSODetails.Rows[e.RowIndex].Cells[1].Value = string.Empty;
+
+                                MessageBox.Show("Item Not Found !", "Sales Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Salary Transactions",
+                MessageBox.Show(ex.Message, "Sales Order",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }

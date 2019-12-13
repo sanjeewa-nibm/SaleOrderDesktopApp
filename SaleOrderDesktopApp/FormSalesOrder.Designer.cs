@@ -53,10 +53,16 @@
             this.label16 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgSODetails = new System.Windows.Forms.DataGridView();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LocationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,13 +90,13 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(11, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(954, 192);
+            this.panel1.Size = new System.Drawing.Size(1090, 192);
             this.panel1.TabIndex = 1;
             // 
             // dateTimePicker4
             // 
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(796, 144);
+            this.dateTimePicker4.Location = new System.Drawing.Point(934, 144);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker4.TabIndex = 17;
@@ -98,7 +104,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(726, 148);
+            this.label8.Location = new System.Drawing.Point(864, 148);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 13);
             this.label8.TabIndex = 16;
@@ -107,7 +113,7 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(796, 109);
+            this.dateTimePicker3.Location = new System.Drawing.Point(934, 109);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker3.TabIndex = 15;
@@ -115,7 +121,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(717, 113);
+            this.label7.Location = new System.Drawing.Point(855, 113);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 14;
@@ -125,7 +131,7 @@
             // 
             this.cmbSalesPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSalesPerson.FormattingEnabled = true;
-            this.cmbSalesPerson.Location = new System.Drawing.Point(796, 76);
+            this.cmbSalesPerson.Location = new System.Drawing.Point(934, 76);
             this.cmbSalesPerson.Name = "cmbSalesPerson";
             this.cmbSalesPerson.Size = new System.Drawing.Size(136, 21);
             this.cmbSalesPerson.TabIndex = 13;
@@ -133,7 +139,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(713, 80);
+            this.label6.Location = new System.Drawing.Point(851, 80);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 11;
@@ -142,7 +148,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(796, 42);
+            this.dateTimePicker2.Location = new System.Drawing.Point(934, 42);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker2.TabIndex = 10;
@@ -150,7 +156,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(714, 45);
+            this.label5.Location = new System.Drawing.Point(852, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 9;
@@ -159,7 +165,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(796, 14);
+            this.dateTimePicker1.Location = new System.Drawing.Point(934, 14);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker1.TabIndex = 8;
@@ -167,7 +173,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(732, 17);
+            this.label4.Location = new System.Drawing.Point(870, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 7;
@@ -240,15 +246,15 @@
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label16);
-            this.panel2.Location = new System.Drawing.Point(11, 340);
+            this.panel2.Location = new System.Drawing.Point(14, 340);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(954, 73);
+            this.panel2.Size = new System.Drawing.Size(1090, 73);
             this.panel2.TabIndex = 18;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(751, 36);
+            this.label12.Location = new System.Drawing.Point(907, 36);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(87, 13);
             this.label12.TabIndex = 9;
@@ -258,7 +264,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(753, 11);
+            this.label13.Location = new System.Drawing.Point(909, 11);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(87, 13);
             this.label13.TabIndex = 7;
@@ -287,7 +293,7 @@
             this.panel3.Controls.Add(this.dgSODetails);
             this.panel3.Location = new System.Drawing.Point(11, 206);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(954, 128);
+            this.panel3.Size = new System.Drawing.Size(1093, 128);
             this.panel3.TabIndex = 19;
             // 
             // dgSODetails
@@ -295,12 +301,38 @@
             this.dgSODetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSODetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Item,
-            this.Description});
+            this.Description,
+            this.LocationCode,
+            this.Quantity,
+            this.UOM,
+            this.Price,
+            this.Discount,
+            this.Amount});
             this.dgSODetails.Location = new System.Drawing.Point(4, 7);
             this.dgSODetails.Name = "dgSODetails";
-            this.dgSODetails.Size = new System.Drawing.Size(928, 107);
+            this.dgSODetails.Size = new System.Drawing.Size(1086, 107);
             this.dgSODetails.TabIndex = 0;
             this.dgSODetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSODetails_CellValueChanged);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(12, 419);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 20;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Location = new System.Drawing.Point(1026, 419);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.TabIndex = 21;
+            this.buttonClose.Text = "Close";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // Item
             // 
@@ -316,31 +348,53 @@
             this.Description.ReadOnly = true;
             this.Description.Width = 200;
             // 
-            // buttonSave
+            // LocationCode
             // 
-            this.buttonSave.Location = new System.Drawing.Point(12, 419);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 20;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.LocationCode.Frozen = true;
+            this.LocationCode.HeaderText = "Location Code";
+            this.LocationCode.Name = "LocationCode";
             // 
-            // buttonClose
+            // Quantity
             // 
-            this.buttonClose.Location = new System.Drawing.Point(890, 419);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
-            this.buttonClose.TabIndex = 21;
-            this.buttonClose.Text = "Close";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            this.Quantity.Frozen = true;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
+            // 
+            // UOM
+            // 
+            this.UOM.Frozen = true;
+            this.UOM.HeaderText = "UOM";
+            this.UOM.Name = "UOM";
+            this.UOM.ReadOnly = true;
+            this.UOM.Width = 80;
+            // 
+            // Price
+            // 
+            this.Price.Frozen = true;
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.Width = 175;
+            // 
+            // Discount
+            // 
+            this.Discount.Frozen = true;
+            this.Discount.HeaderText = "Discount";
+            this.Discount.Name = "Discount";
+            // 
+            // Amount
+            // 
+            this.Amount.Frozen = true;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 175;
             // 
             // FormSalesOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 450);
+            this.ClientSize = new System.Drawing.Size(1116, 450);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.panel3);
@@ -392,6 +446,12 @@
         private System.Windows.Forms.DataGridView dgSODetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LocationCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UOM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
     }
 }
 

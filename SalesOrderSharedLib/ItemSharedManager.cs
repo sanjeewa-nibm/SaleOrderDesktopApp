@@ -28,6 +28,17 @@ namespace SalesOrderSharedLib
                 throw ex;
             }
         }
+        public Item LoadItemByCode(string _code)
+        {
+            try
+            {
+                return _item.GetItemByCode(_code);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }
