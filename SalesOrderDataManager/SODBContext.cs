@@ -31,6 +31,7 @@ namespace SalesOrderDataManager
         public virtual DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
         public virtual DbSet<SalesPerson> SalesPersons { get; set; }
         public virtual DbSet<UnitofMeasure> UnitofMeasures { get; set; }
+
     }
 
 }

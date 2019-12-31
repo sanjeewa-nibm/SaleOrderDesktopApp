@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.dtOrderDate = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dtPostingDate = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbSalesPerson = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtDeliveryDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtDocDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxCity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,8 +53,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgSODetails = new System.Windows.Forms.DataGridView();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
+            this.Del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LocationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +62,8 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,15 +72,15 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dateTimePicker4);
+            this.panel1.Controls.Add(this.dtOrderDate);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.dateTimePicker3);
+            this.panel1.Controls.Add(this.dtPostingDate);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.cmbSalesPerson);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.dateTimePicker2);
+            this.panel1.Controls.Add(this.dtDeliveryDate);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dtDocDate);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBoxCity);
             this.panel1.Controls.Add(this.label3);
@@ -93,13 +94,13 @@
             this.panel1.Size = new System.Drawing.Size(1090, 192);
             this.panel1.TabIndex = 1;
             // 
-            // dateTimePicker4
+            // dtOrderDate
             // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(934, 144);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(136, 20);
-            this.dateTimePicker4.TabIndex = 17;
+            this.dtOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtOrderDate.Location = new System.Drawing.Point(934, 144);
+            this.dtOrderDate.Name = "dtOrderDate";
+            this.dtOrderDate.Size = new System.Drawing.Size(136, 20);
+            this.dtOrderDate.TabIndex = 17;
             // 
             // label8
             // 
@@ -110,13 +111,13 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Order Date";
             // 
-            // dateTimePicker3
+            // dtPostingDate
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(934, 109);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(136, 20);
-            this.dateTimePicker3.TabIndex = 15;
+            this.dtPostingDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPostingDate.Location = new System.Drawing.Point(934, 109);
+            this.dtPostingDate.Name = "dtPostingDate";
+            this.dtPostingDate.Size = new System.Drawing.Size(136, 20);
+            this.dtPostingDate.TabIndex = 15;
             // 
             // label7
             // 
@@ -145,13 +146,13 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Sales  Person";
             // 
-            // dateTimePicker2
+            // dtDeliveryDate
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(934, 42);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(136, 20);
-            this.dateTimePicker2.TabIndex = 10;
+            this.dtDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDeliveryDate.Location = new System.Drawing.Point(934, 42);
+            this.dtDeliveryDate.Name = "dtDeliveryDate";
+            this.dtDeliveryDate.Size = new System.Drawing.Size(136, 20);
+            this.dtDeliveryDate.TabIndex = 10;
             // 
             // label5
             // 
@@ -162,13 +163,13 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Delivery Date";
             // 
-            // dateTimePicker1
+            // dtDocDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(934, 14);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(136, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dtDocDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDocDate.Location = new System.Drawing.Point(934, 14);
+            this.dtDocDate.Name = "dtDocDate";
+            this.dtDocDate.Size = new System.Drawing.Size(136, 20);
+            this.dtDocDate.TabIndex = 8;
             // 
             // label4
             // 
@@ -183,8 +184,10 @@
             // 
             this.textBoxCity.Location = new System.Drawing.Point(77, 76);
             this.textBoxCity.Name = "textBoxCity";
-            this.textBoxCity.Size = new System.Drawing.Size(41, 20);
+            this.textBoxCity.ReadOnly = true;
+            this.textBoxCity.Size = new System.Drawing.Size(53, 20);
             this.textBoxCity.TabIndex = 6;
+            this.textBoxCity.TabStop = false;
             // 
             // label3
             // 
@@ -199,7 +202,7 @@
             // 
             this.cmbCustomerName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCustomerName.FormattingEnabled = true;
-            this.cmbCustomerName.Location = new System.Drawing.Point(125, 45);
+            this.cmbCustomerName.Location = new System.Drawing.Point(139, 45);
             this.cmbCustomerName.Name = "cmbCustomerName";
             this.cmbCustomerName.Size = new System.Drawing.Size(308, 21);
             this.cmbCustomerName.TabIndex = 4;
@@ -210,7 +213,7 @@
             this.textBoxCustomerID.Location = new System.Drawing.Point(77, 45);
             this.textBoxCustomerID.Name = "textBoxCustomerID";
             this.textBoxCustomerID.ReadOnly = true;
-            this.textBoxCustomerID.Size = new System.Drawing.Size(41, 20);
+            this.textBoxCustomerID.Size = new System.Drawing.Size(53, 20);
             this.textBoxCustomerID.TabIndex = 3;
             // 
             // label2
@@ -227,7 +230,7 @@
             this.textBoxSalesOrderID.Location = new System.Drawing.Point(77, 14);
             this.textBoxSalesOrderID.Name = "textBoxSalesOrderID";
             this.textBoxSalesOrderID.ReadOnly = true;
-            this.textBoxSalesOrderID.Size = new System.Drawing.Size(41, 20);
+            this.textBoxSalesOrderID.Size = new System.Drawing.Size(53, 20);
             this.textBoxSalesOrderID.TabIndex = 1;
             this.textBoxSalesOrderID.TabStop = false;
             // 
@@ -298,8 +301,10 @@
             // 
             // dgSODetails
             // 
+            this.dgSODetails.AllowUserToDeleteRows = false;
             this.dgSODetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSODetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Del,
             this.Item,
             this.Description,
             this.LocationCode,
@@ -312,27 +317,15 @@
             this.dgSODetails.Name = "dgSODetails";
             this.dgSODetails.Size = new System.Drawing.Size(1086, 107);
             this.dgSODetails.TabIndex = 0;
+            this.dgSODetails.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgSODetails_CellMouseClick);
             this.dgSODetails.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSODetails_CellValueChanged);
             // 
-            // buttonSave
+            // Del
             // 
-            this.buttonSave.Location = new System.Drawing.Point(12, 419);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 20;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Location = new System.Drawing.Point(1026, 419);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
-            this.buttonClose.TabIndex = 21;
-            this.buttonClose.Text = "Close";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            this.Del.Frozen = true;
+            this.Del.HeaderText = "";
+            this.Del.Name = "Del";
+            this.Del.Width = 25;
             // 
             // Item
             // 
@@ -390,6 +383,26 @@
             this.Amount.ReadOnly = true;
             this.Amount.Width = 175;
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(12, 419);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 20;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Location = new System.Drawing.Point(1026, 419);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.TabIndex = 21;
+            this.buttonClose.Text = "Close";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
             // FormSalesOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,15 +438,15 @@
         private System.Windows.Forms.ComboBox cmbCustomerName;
         private System.Windows.Forms.TextBox textBoxCity;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtDocDate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtDeliveryDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbSalesPerson;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dtPostingDate;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dtOrderDate;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
@@ -444,6 +457,7 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.DataGridView dgSODetails;
+        private System.Windows.Forms.DataGridViewButtonColumn Del;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn LocationCode;

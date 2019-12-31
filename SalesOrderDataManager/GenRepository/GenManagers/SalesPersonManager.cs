@@ -41,7 +41,26 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
         {
             throw new NotImplementedException();
         }
+        public SalesPerson GetSalesPersonByName(string salespName)
+        {
+            SalesPerson _results;
 
+            try
+            {
+                using (SODBContext db = new SODBContext())
+                {
+                    _results = db.SalesPersons
+                            .Where(x => x.Name == salespName)
+                            .FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return _results;
+        }
         public bool SalesPersonNameExists(string salespName)
         {
             throw new NotImplementedException();

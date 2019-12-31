@@ -72,13 +72,13 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
         public Item GetItemByCode(string Code)
         {
             Item _results;
-
+                
             try
             {
                 using (SODBContext db = new SODBContext())
                 {
                     _results = db.Items
-                            //.Include("CustomerCity")
+                            .Include("UnitofMeasure")
                             .Where(x => x.ItemCode == Code)
                             .FirstOrDefault();
 

@@ -13,11 +13,11 @@ namespace  SalesOrderDataManager.Model
         public int StockQuantity { get; set; }
         public decimal UnitPrice { get; set; }
 
-        public int CategoryId { get; set; }
+        //public int CategoryId { get; set; }
         public virtual ItemCategory ItemCategory { get; set; }
 
-        public int UOMId { get; set; }
-        public virtual UnitofMeasure UnitofMeasure { get; set; }
+        //public int UOMId { get; set; }
+        public UnitofMeasure UnitofMeasure { get; set; }
         public virtual ICollection<SalesOrderDetail> SalesOrderDetails { get; set; }
 
     }

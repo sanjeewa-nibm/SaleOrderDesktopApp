@@ -8,8 +8,13 @@ namespace  SalesOrderDataManager.Model
 {
     public class SalesOrderHeader
     {
+        public SalesOrderHeader()
+        {
+            this.SalesPerson = new SalesPerson();
+            this.Customer = new Customer();
+        }
         public int Id { get; set; }
-        public int CustId { get; set; }
+        //public int CustId { get; set; }
         public string CustName { get; set; }
         public string CustCity { get; set; }
 
@@ -29,7 +34,7 @@ namespace  SalesOrderDataManager.Model
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public System.DateTime DeliveryDate { get; set; }
 
-        public int SalesPersonId { get; set; }
+        //public int SalesPersonId { get; set; }
         public bool Status { get; set; }
         public decimal SoDiscountAmount { get; set; }
         public decimal SoTotal { get; set; }

@@ -12,7 +12,7 @@ namespace SalesOrderDataManager.GenRepository
         IEnumerable<SalesOrderHeader> GetAllSOHeader();
         int GetSOHeaderDocNo();
 
-        //void InsertSOHeader(SalesOrderHeader ward); // C
+        void SaveSOHeader(SalesOrderHeader SO); // C
 
         IEnumerable<SalesOrderHeader> GetSOHeader(); // R
         Customer GetSOHeaderByID(int ID); // R

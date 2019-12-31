@@ -27,16 +27,16 @@ namespace SalesOrderSharedLib
                 throw ex;
             }
         }
-        //public SalesPerson LoadSalesPersonByName(string _name)
-        //{
-        //    try
-        //    {
-        //        return _SalesPerson.GetSalesPersonByName(_name);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public SalesPerson LoadSalesPersonByName(string _name)
+        {
+            try
+            {
+                return _SalesPerson.GetSalesPersonByName(_name);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

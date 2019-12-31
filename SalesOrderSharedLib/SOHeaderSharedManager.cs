@@ -1,4 +1,5 @@
 ﻿using SalesOrderDataManager.GenRepository.GenManagers;
+using SalesOrderDataManager.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,17 @@ namespace SalesOrderSharedLib
             try
             {
                 return _SalesOrderHeader.GetSOHeaderDocNo();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void SaveSOHeader(SalesOrderHeader SO)
+        {
+            try
+            {
+                _SalesOrderHeader.SaveSOHeader(SO);
             }
             catch (Exception ex)
             {

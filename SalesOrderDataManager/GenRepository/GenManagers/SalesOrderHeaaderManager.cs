@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +49,34 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
             throw new NotImplementedException();
         }
 
-         public void DisposeSOHeader()
+        public void SaveSOHeader(SalesOrderHeader SO)
+        {
+            try
+            {
+                using (SODBContext db = new SODBContext())
+                {
+                    db.Entry(SO.SalesPerson).State = EntityState.Unchanged;
+                    db.Entry(SO.Customer).State = EntityState.Unchanged;
+                    db.Entry(SO.Customer.CustCity).State = EntityState.Unchanged;
+                    db.SalesOrderHeaders.Add(SO);
+
+                    ////db.CustomerCities.Remove(SO.Customer.CustCity);
+                    ////db.Customers.Remove(SO.Customer);
+                  
+
+                    db.Entry(SO).State = EntityState.Added;
+
+
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DisposeSOHeader()
         {
             throw new NotImplementedException();
         }

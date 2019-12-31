@@ -59,7 +59,7 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
                 using (SODBContext db = new SODBContext())
                 {
                     _results = db.Customers
-                                           .Include("CustomerCity")
+                                           .Include("CustCity")
                                            .Where(x => x.CustName == Name)
                                            .FirstOrDefault();
 
