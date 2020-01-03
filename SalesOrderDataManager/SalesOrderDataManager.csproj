@@ -51,10 +51,12 @@
   <ItemGroup>
     <Compile Include="GenRepository\GenManagers\CustomerManager.cs" />
     <Compile Include="GenRepository\GenManagers\ItemManager.cs" />
+    <Compile Include="GenRepository\GenManagers\SalesOrderDetailManager.cs" />
     <Compile Include="GenRepository\GenManagers\SalesOrderHeaaderManager.cs" />
     <Compile Include="GenRepository\GenManagers\SalesPersonManager.cs" />
     <Compile Include="GenRepository\ICustomer.cs" />
     <Compile Include="GenRepository\IItem.cs" />
+    <Compile Include="GenRepository\ISalesOrderDetail.cs" />
     <Compile Include="GenRepository\ISalesOrderHeader.cs" />
     <Compile Include="GenRepository\ISalesPerson.cs" />
     <Compile Include="Migrations\Configuration.cs" />

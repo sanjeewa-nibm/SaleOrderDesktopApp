@@ -123,7 +123,7 @@ namespace SaleOrderDesktopApp
                 SalesOrderHeader obj = GetUIData();
 
                 _SOHeaderSharedMgr.SaveSOHeader(obj);
-                MessageBox.Show("ok");
+                MessageBox.Show("Sales Order Saved !");
             }
             catch (Exception ex)
             {
