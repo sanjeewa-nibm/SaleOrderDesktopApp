@@ -31,21 +31,15 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
         }
 
 
-        public void SaveSODetail(SalesOrderDetail SO)
+        public void SaveSODetail(IEnumerable<SalesOrderDetail> SO, SODBContext db)
         {
             try
             {
-                using (SODBContext db = new SODBContext())
+
+                foreach (SalesOrderDetail line in SO)
                 {
-                    db.Entry(SO.SalesOrderHeader).State = EntityState.Unchanged;
-                    db.Entry(SO.Item).State = EntityState.Unchanged;
-               
-                    db.SalesOrderDetails.Add(SO);
-
-                    db.Entry(SO).State = EntityState.Added;
-
-
-                    db.SaveChanges();
+                    db.Entry(line.Item).State = EntityState.Unchanged;
+                    db.SalesOrderDetails.Add(line);
                 }
             }
             catch (Exception ex)

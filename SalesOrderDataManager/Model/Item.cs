@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,11 @@ namespace  SalesOrderDataManager.Model
 {
     public class Item
     {
+        //public Item()
+        //{
+        //    this.UnitofMeasure = new UnitofMeasure();
+        //    this.ItemCategory = new ItemCategory();
+        //}
         public int Id { get; set; }
         public string ItemCode { get; set; }
         public string ItemDescription { get; set; }
@@ -17,7 +23,7 @@ namespace  SalesOrderDataManager.Model
         public virtual ItemCategory ItemCategory { get; set; }
 
         //public int UOMId { get; set; }
-        public UnitofMeasure UnitofMeasure { get; set; }
+        public virtual UnitofMeasure UnitofMeasure { get; set; }
         public virtual ICollection<SalesOrderDetail> SalesOrderDetails { get; set; }
 
     }

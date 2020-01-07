@@ -17,16 +17,16 @@ namespace SalesOrderSharedLib
             _SalesOrderHeader = new SalesOrderDetailManager();
         }
       
-         public void SaveSODetail(SalesOrderDetail SO)
+         public void SaveSODetail(ICollection<SalesOrderDetail> SO)
         {
-            try
-            {
-                _SalesOrderHeader.SaveSODetail(SO);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            //try
+            //{
+            //    _SalesOrderHeader.SaveSODetail(SO);
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
         }
     }
 }

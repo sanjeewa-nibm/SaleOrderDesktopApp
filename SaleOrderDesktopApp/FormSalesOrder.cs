@@ -20,6 +20,8 @@ namespace SaleOrderDesktopApp
         CustomerSharedManager _CustShareMgr = new CustomerSharedManager();
         SalesPersonSharedManager _SalesPersonShareMgr = new SalesPersonSharedManager();
         SOHeaderSharedManager _SOHeaderSharedMgr = new SOHeaderSharedManager();
+        SODetailSharedManager _SODetailSharedMgr = new SODetailSharedManager();
+
         ItemSharedManager _ItemShareMgr = new ItemSharedManager();
 
         #region Constructor
@@ -40,6 +42,7 @@ namespace SaleOrderDesktopApp
             }
 
         }
+
         private void LoadAllSalesPerson()
         {
             _SalesPersonList = _SalesPersonShareMgr.LoadAllSalesPersons();
@@ -50,6 +53,7 @@ namespace SaleOrderDesktopApp
             }
 
         }
+
         private void LoadSODocumentNo()
         {
             try
@@ -62,7 +66,7 @@ namespace SaleOrderDesktopApp
             }
         }
 
-        private SalesOrderHeader GetUIData()
+        private SalesOrderHeader GetUIHeaderData()
         {
             SalesOrderHeader _soheader = new SalesOrderHeader();
 
@@ -112,6 +116,52 @@ namespace SaleOrderDesktopApp
             return _soheader;
         }
 
+        private void GetUIDetailData(SalesOrderHeader h)
+        {
+            //ICollection<SalesOrderDetail> _x = h.SalesOrderDetails;
+            h.SalesOrderDetails = new List<SalesOrderDetail>();
+            try
+            {
+                
+                for (int i = 0; i < dgSODetails.Rows.Count - 1 ; i++)
+                {
+                    SalesOrderDetail x = new SalesOrderDetail();
+
+                    //x.SalesOrderHeader.Id = h.Id;
+                    x.SalesOrderHeader = h;
+
+                    string _code = dgSODetails.Rows[i].Cells[1].Value.ToString();
+                    Item _item = _ItemShareMgr.LoadItemByCode(_code);
+
+                    //x.Item = _item;
+                    //x.Item.UnitofMeasure = _item.UnitofMeasure;
+                    //x.Item.ItemCategory = _item.ItemCategory;
+
+                    x.Item.Id = _item.Id;
+                    //x.Item.UnitofMeasure.Id = _item.UnitofMeasure.Id;
+                    //x.Item.ItemCategory.Id = _item.ItemCategory.Id;
+
+                    x.ItemCode = _code;
+                    x.ItemDescription = dgSODetails.Rows[i].Cells[2].Value.ToString();
+                    x.LocationCode = dgSODetails.Rows[i].Cells[3].Value.ToString();
+                    x.Quantity = int.Parse(dgSODetails.Rows[i].Cells[4].Value.ToString());
+                    x.UOM = dgSODetails.Rows[i].Cells[5].Value.ToString();
+                    x.UnitPrice = decimal.Parse(dgSODetails.Rows[i].Cells[6].Value.ToString());
+                    //x.LineAmount = decimal.Parse(dgSODetails.Rows[i].Cells[8].Value.ToString());
+                    x.LineDiscount = decimal.Parse(dgSODetails.Rows[i].Cells[7].Value.ToString());
+
+                    //_x.Add(x);
+                    h.SalesOrderDetails.Add(x);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            //return _x;
+
+        }
 
         #endregion
 
@@ -120,9 +170,14 @@ namespace SaleOrderDesktopApp
         {
             try
             {
-                SalesOrderHeader obj = GetUIData();
+                SalesOrderHeader objH = GetUIHeaderData();
 
-                _SOHeaderSharedMgr.SaveSOHeader(obj);
+                //objH.SalesOrderDetails = GetUIDetailData(objH);
+                GetUIDetailData(objH);
+
+
+                _SOHeaderSharedMgr.SaveSOHeader(objH);
+                //_SODetailSharedMgr.SaveSODetail(objH.SalesOrderDetails);
                 MessageBox.Show("Sales Order Saved !");
             }
             catch (Exception ex)
@@ -130,7 +185,7 @@ namespace SaleOrderDesktopApp
 
                 MessageBox.Show(ex.Message.ToString());
             }
-        }
+        }       
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
@@ -187,22 +242,22 @@ namespace SaleOrderDesktopApp
                 {
                     if (e.RowIndex != -1)
                     {
-                        if (dgSODetails.CurrentCell.ColumnIndex == 0)
+                        if (dgSODetails.CurrentCell.ColumnIndex == 1)
                         {
                             Item _item;
 
-                            string _ItemCode = dgSODetails.Rows[e.RowIndex].Cells[0].Value.ToString();
+                            string _ItemCode = dgSODetails.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-                            _item = _ItemShareMgr.LoadItemByCode(_ItemCode);
+                            _item = _ItemShareMgr.LoadItemByCode(_ItemCode.Trim());
                             if (_item != null)
                             {
-                                dgSODetails.Rows[e.RowIndex].Cells[1].Value = _item.ItemDescription;
-                                dgSODetails.Rows[e.RowIndex].Cells[4].Value = _item.UnitofMeasure.UOM;
-                                dgSODetails.Rows[e.RowIndex].Cells[5].Value = _item.UnitPrice;
+                                dgSODetails.Rows[e.RowIndex].Cells[2].Value = _item.ItemDescription;
+                                dgSODetails.Rows[e.RowIndex].Cells[5].Value = _item.UnitofMeasure.UOM;
+                                dgSODetails.Rows[e.RowIndex].Cells[6].Value = _item.UnitPrice;
                             }
                             else
                             {
-                                dgSODetails.Rows[e.RowIndex].Cells[1].Value = string.Empty;
+                                dgSODetails.Rows[e.RowIndex].Cells[2].Value = string.Empty;
 
                                 MessageBox.Show("Item Not Found !", "Sales Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }

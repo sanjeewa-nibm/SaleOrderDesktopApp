@@ -12,7 +12,13 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
 {
     public class SalesOrderHeaaderManager : ISalesOrderHeader
     {
-      
+        SalesOrderDetailManager _SalesOrderDetail;
+
+        public SalesOrderHeaaderManager()
+        {
+            _SalesOrderDetail = new SalesOrderDetailManager();
+        }
+
         public IEnumerable<SalesOrderHeader> GetAllSOHeader()
         {
             throw new NotImplementedException();
@@ -58,14 +64,32 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
                     db.Entry(SO.SalesPerson).State = EntityState.Unchanged;
                     db.Entry(SO.Customer).State = EntityState.Unchanged;
                     db.Entry(SO.Customer.CustCity).State = EntityState.Unchanged;
-                    db.SalesOrderHeaders.Add(SO);
 
-                    ////db.CustomerCities.Remove(SO.Customer.CustCity);
-                    ////db.Customers.Remove(SO.Customer);
-                  
+                    //db.Entry(SO.SalesOrderDetails).State = EntityState.Unchanged;
+
+
+                    db.SalesOrderHeaders.Add(SO);
+                    //db.Entry(SO).State = EntityState.Added;
+
+
+                    _SalesOrderDetail.SaveSODetail(SO.SalesOrderDetails,db);
+                    //foreach (SalesOrderDetail line in SO.SalesOrderDetails)
+                    //{
+                    //    //line.SalesOrderHeader = SO;
+                    //    //db.Entry(line.SalesOrderHeader).State = EntityState.Unchanged;
+                    //    db.Entry(line.Item).State = EntityState.Unchanged;
+                    //    //db.Entry(line.Item.UnitofMeasure).State = EntityState.Unchanged;
+                    //    //db.Entry(line.Item.ItemCategory).State = EntityState.Unchanged;
+
+                    //    //db.Entry(line).State = EntityState.Added;
+                    //    //db.Items.Attach(line.Item);
+                    //    //db.UnitofMeasures.Attach(line.Item.UnitofMeasure);
+                    //    //db.ItemCategories.Attach(line.Item.ItemCategory);
+
+                    //    db.SalesOrderDetails.Add(line);
+                    //}
 
                     db.Entry(SO).State = EntityState.Added;
-
 
                     db.SaveChanges();
                 }

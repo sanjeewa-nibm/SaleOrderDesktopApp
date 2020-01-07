@@ -79,6 +79,7 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
                 {
                     _results = db.Items
                             .Include("UnitofMeasure")
+                            .Include("ItemCategory")
                             .Where(x => x.ItemCode == Code)
                             .FirstOrDefault();
 

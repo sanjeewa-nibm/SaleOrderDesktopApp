@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,10 +8,18 @@ namespace  SalesOrderDataManager.Model
 {
     public class SalesOrderDetail
     {
+        public SalesOrderDetail()
+        {
+            this.Item = new Item();
+            //this.SalesOrderHeader = new SalesOrderHeader();
+        }
+
         public int Id { get; set; }
-        public int SoId { get; set; }
-        public string ItemType { get; set; }
-        public int ItemId { get; set; }
+        [ForeignKey("SalesOrderHeader")]
+        public int? SoId { get; set; }
+        //public string ItemType { get; set; }
+        //public int ItemId { get; set; }
+        public string ItemCode { get; set; }
         public string ItemDescription { get; set; }
         public string LocationCode { get; set; }
         public int Quantity { get; set; }

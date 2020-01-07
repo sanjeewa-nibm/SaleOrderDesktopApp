@@ -11,7 +11,7 @@ namespace SalesOrderDataManager.GenRepository
     {
         IEnumerable<SalesOrderDetail> GetAllSODetail();
 
-        void SaveSODetail(SalesOrderDetail SO); // C
+        void SaveSODetail(IEnumerable<SalesOrderDetail> SO, SODBContext db); // C
 
         IEnumerable<SalesOrderDetail> GetSODetail(); // R
         Customer GetSODetailByID(int ID); // R
