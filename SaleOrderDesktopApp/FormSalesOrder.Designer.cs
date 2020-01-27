@@ -64,6 +64,8 @@
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.labelAllDiscount = new System.Windows.Forms.Label();
+            this.labelAllAmount = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -245,6 +247,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.labelAllAmount);
+            this.panel2.Controls.Add(this.labelAllDiscount);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label15);
@@ -403,6 +407,24 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // labelAllDiscount
+            // 
+            this.labelAllDiscount.AutoSize = true;
+            this.labelAllDiscount.Location = new System.Drawing.Point(152, 11);
+            this.labelAllDiscount.Name = "labelAllDiscount";
+            this.labelAllDiscount.Size = new System.Drawing.Size(40, 13);
+            this.labelAllDiscount.TabIndex = 10;
+            this.labelAllDiscount.Text = "0.0000";
+            // 
+            // labelAllAmount
+            // 
+            this.labelAllAmount.AutoSize = true;
+            this.labelAllAmount.Location = new System.Drawing.Point(1009, 11);
+            this.labelAllAmount.Name = "labelAllAmount";
+            this.labelAllAmount.Size = new System.Drawing.Size(40, 13);
+            this.labelAllAmount.TabIndex = 11;
+            this.labelAllAmount.Text = "0.0000";
+            // 
             // FormSalesOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,6 +488,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.Label labelAllDiscount;
+        private System.Windows.Forms.Label labelAllAmount;
     }
 }
 

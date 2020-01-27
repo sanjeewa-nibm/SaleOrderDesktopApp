@@ -34,7 +34,7 @@ namespace SalesOrderDataManager.GenRepository.GenManagers
                 using (SODBContext db = new SODBContext())
                 {
                     _results = db.SalesOrderHeaders.OrderByDescending(x => x.Id).Take(1).FirstOrDefault();
-                    _DocID = (_results == null) ? 1 : _results.Id;
+                    _DocID = (_results == null) ? 1 : _results.Id + 1;
                 }
             }
             catch (Exception ex)

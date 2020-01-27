@@ -163,6 +163,57 @@ namespace SaleOrderDesktopApp
 
         }
 
+        private void CalculateAllDiscount()
+        {
+            decimal _FinalDiscouAmount = 0;
+            try
+            {
+                for (int i = 0; i < dgSODetails.Rows.Count - 1; i++)
+                {
+                    decimal _DiscountPer = 0;
+                    decimal _Qty = 0, _Price = 0;
+
+                    decimal.TryParse(dgSODetails.Rows[i].Cells[7].Value.ToString(), out _DiscountPer);                    
+
+                    decimal.TryParse(dgSODetails.Rows[i].Cells[4].Value.ToString(), out _Qty);
+                    decimal.TryParse(dgSODetails.Rows[i].Cells[6].Value.ToString(), out _Price);
+
+                    decimal _Amount = _Qty * _Price;
+
+                    _FinalDiscouAmount += (_DiscountPer / 100) * _Amount;
+
+                    labelAllDiscount.Text =  _FinalDiscouAmount.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            { 
+                throw ex;
+            }
+        }
+
+        private void CalculateAllAmount()
+        {
+            decimal _LineAmount = 0;
+            decimal _FinalValue = 0;
+            try
+            {
+                for (int i = 0; i < dgSODetails.Rows.Count - 1; i++)
+                {
+                    decimal.TryParse(dgSODetails.Rows[i].Cells[8].Value.ToString(), out _LineAmount);
+
+                    _FinalValue += _LineAmount;
+
+                    labelAllAmount.Text = _FinalValue.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         #endregion
 
         #region Events
@@ -242,10 +293,12 @@ namespace SaleOrderDesktopApp
                 {
                     if (e.RowIndex != -1)
                     {
+                        decimal _FinalReducedAmount = 0;
+
                         if (dgSODetails.CurrentCell.ColumnIndex == 1)
                         {
                             Item _item;
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                             string _ItemCode = dgSODetails.Rows[e.RowIndex].Cells[1].Value.ToString();
 
                             _item = _ItemShareMgr.LoadItemByCode(_ItemCode.Trim());
@@ -262,16 +315,44 @@ namespace SaleOrderDesktopApp
                                 MessageBox.Show("Item Not Found !", "Sales Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-                        else if (dgSODetails.CurrentCell.ColumnIndex == 3)
+                        else if (dgSODetails.CurrentCell.ColumnIndex == 4)
                         {
+                            decimal _Qty=0, _Price =0;
+
+                             decimal.TryParse(dgSODetails.Rows[e.RowIndex].Cells[4].Value.ToString(),out _Qty);
+                            decimal.TryParse(dgSODetails.Rows[e.RowIndex].Cells[6].Value.ToString(),out _Price);
+
+                            decimal _Amount = _Qty * _Price;
+
+                            dgSODetails.Rows[e.RowIndex].Cells[8].Value = _Amount.ToString();
+                            CalculateAllAmount();
                         }
+                        else if (dgSODetails.CurrentCell.ColumnIndex == 7)
+                        {
+                            decimal _DiscountPer = 0, _FinalAmount = 0;
+                            _FinalReducedAmount = 0;
+
+                            decimal.TryParse(dgSODetails.Rows[e.RowIndex].Cells[7].Value.ToString(), out _DiscountPer);
+                            decimal.TryParse(dgSODetails.Rows[e.RowIndex].Cells[8].Value.ToString(), out _FinalAmount);
+
+                            _FinalReducedAmount = (1 - (_DiscountPer / 100)) * _FinalAmount;
+
+                            //dgSODetails.Rows[e.RowIndex].Cells[8].Value = _FinalReducedAmount.ToString();
+                        }
+
+                        if (_FinalReducedAmount>0 && e.ColumnIndex==7)
+                        {
+                            dgSODetails.Rows[e.RowIndex].Cells[8].Value = _FinalReducedAmount.ToString();
+                            CalculateAllDiscount();
+                            CalculateAllAmount();
+                        }
+
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Sales Order",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Sales Order",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
         }
