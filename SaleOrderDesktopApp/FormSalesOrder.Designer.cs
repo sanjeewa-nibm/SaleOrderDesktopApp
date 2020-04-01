@@ -47,6 +47,10 @@
             this.textBoxSalesOrderID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textFullDiscount = new System.Windows.Forms.TextBox();
+            this.labelFullAmount = new System.Windows.Forms.Label();
+            this.labelAllAmount = new System.Windows.Forms.Label();
+            this.labelAllDiscount = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -64,8 +68,6 @@
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.labelAllDiscount = new System.Windows.Forms.Label();
-            this.labelAllAmount = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -94,7 +96,7 @@
             this.panel1.Location = new System.Drawing.Point(11, 8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1090, 192);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 0;
             // 
             // dtOrderDate
             // 
@@ -102,7 +104,7 @@
             this.dtOrderDate.Location = new System.Drawing.Point(934, 144);
             this.dtOrderDate.Name = "dtOrderDate";
             this.dtOrderDate.Size = new System.Drawing.Size(136, 20);
-            this.dtOrderDate.TabIndex = 17;
+            this.dtOrderDate.TabIndex = 3;
             // 
             // label8
             // 
@@ -119,7 +121,7 @@
             this.dtPostingDate.Location = new System.Drawing.Point(934, 109);
             this.dtPostingDate.Name = "dtPostingDate";
             this.dtPostingDate.Size = new System.Drawing.Size(136, 20);
-            this.dtPostingDate.TabIndex = 15;
+            this.dtPostingDate.TabIndex = 2;
             // 
             // label7
             // 
@@ -154,7 +156,7 @@
             this.dtDeliveryDate.Location = new System.Drawing.Point(934, 42);
             this.dtDeliveryDate.Name = "dtDeliveryDate";
             this.dtDeliveryDate.Size = new System.Drawing.Size(136, 20);
-            this.dtDeliveryDate.TabIndex = 10;
+            this.dtDeliveryDate.TabIndex = 1;
             // 
             // label5
             // 
@@ -171,7 +173,7 @@
             this.dtDocDate.Location = new System.Drawing.Point(934, 14);
             this.dtDocDate.Name = "dtDocDate";
             this.dtDocDate.Size = new System.Drawing.Size(136, 20);
-            this.dtDocDate.TabIndex = 8;
+            this.dtDocDate.TabIndex = 0;
             // 
             // label4
             // 
@@ -247,6 +249,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textFullDiscount);
+            this.panel2.Controls.Add(this.labelFullAmount);
             this.panel2.Controls.Add(this.labelAllAmount);
             this.panel2.Controls.Add(this.labelAllDiscount);
             this.panel2.Controls.Add(this.label12);
@@ -256,12 +260,48 @@
             this.panel2.Location = new System.Drawing.Point(14, 340);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1090, 73);
-            this.panel2.TabIndex = 18;
+            this.panel2.TabIndex = 2;
+            // 
+            // textFullDiscount
+            // 
+            this.textFullDiscount.Location = new System.Drawing.Point(151, 32);
+            this.textFullDiscount.Name = "textFullDiscount";
+            this.textFullDiscount.Size = new System.Drawing.Size(72, 20);
+            this.textFullDiscount.TabIndex = 0;
+            this.textFullDiscount.Text = "0.0000";
+            this.textFullDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textFullDiscount_KeyPress);
+            // 
+            // labelFullAmount
+            // 
+            this.labelFullAmount.AutoSize = true;
+            this.labelFullAmount.Location = new System.Drawing.Point(1009, 36);
+            this.labelFullAmount.Name = "labelFullAmount";
+            this.labelFullAmount.Size = new System.Drawing.Size(40, 13);
+            this.labelFullAmount.TabIndex = 12;
+            this.labelFullAmount.Text = "0.0000";
+            // 
+            // labelAllAmount
+            // 
+            this.labelAllAmount.AutoSize = true;
+            this.labelAllAmount.Location = new System.Drawing.Point(1009, 11);
+            this.labelAllAmount.Name = "labelAllAmount";
+            this.labelAllAmount.Size = new System.Drawing.Size(40, 13);
+            this.labelAllAmount.TabIndex = 11;
+            this.labelAllAmount.Text = "0.0000";
+            // 
+            // labelAllDiscount
+            // 
+            this.labelAllDiscount.AutoSize = true;
+            this.labelAllDiscount.Location = new System.Drawing.Point(152, 11);
+            this.labelAllDiscount.Name = "labelAllDiscount";
+            this.labelAllDiscount.Size = new System.Drawing.Size(40, 13);
+            this.labelAllDiscount.TabIndex = 10;
+            this.labelAllDiscount.Text = "0.0000";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(907, 36);
+            this.label12.Location = new System.Drawing.Point(19, 36);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(87, 13);
             this.label12.TabIndex = 9;
@@ -280,7 +320,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(19, 42);
+            this.label15.Location = new System.Drawing.Point(909, 36);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(31, 13);
             this.label15.TabIndex = 2;
@@ -301,7 +341,7 @@
             this.panel3.Location = new System.Drawing.Point(11, 206);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1093, 128);
-            this.panel3.TabIndex = 19;
+            this.panel3.TabIndex = 1;
             // 
             // dgSODetails
             // 
@@ -376,7 +416,7 @@
             // Discount
             // 
             this.Discount.Frozen = true;
-            this.Discount.HeaderText = "Discount";
+            this.Discount.HeaderText = "Discount [%]";
             this.Discount.Name = "Discount";
             // 
             // Amount
@@ -392,7 +432,7 @@
             this.buttonSave.Location = new System.Drawing.Point(12, 419);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 20;
+            this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -402,28 +442,10 @@
             this.buttonClose.Location = new System.Drawing.Point(1026, 419);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(75, 23);
-            this.buttonClose.TabIndex = 21;
+            this.buttonClose.TabIndex = 4;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // labelAllDiscount
-            // 
-            this.labelAllDiscount.AutoSize = true;
-            this.labelAllDiscount.Location = new System.Drawing.Point(152, 11);
-            this.labelAllDiscount.Name = "labelAllDiscount";
-            this.labelAllDiscount.Size = new System.Drawing.Size(40, 13);
-            this.labelAllDiscount.TabIndex = 10;
-            this.labelAllDiscount.Text = "0.0000";
-            // 
-            // labelAllAmount
-            // 
-            this.labelAllAmount.AutoSize = true;
-            this.labelAllAmount.Location = new System.Drawing.Point(1009, 11);
-            this.labelAllAmount.Name = "labelAllAmount";
-            this.labelAllAmount.Size = new System.Drawing.Size(40, 13);
-            this.labelAllAmount.TabIndex = 11;
-            this.labelAllAmount.Text = "0.0000";
             // 
             // FormSalesOrder
             // 
@@ -479,6 +501,9 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.DataGridView dgSODetails;
+        private System.Windows.Forms.Label labelAllDiscount;
+        private System.Windows.Forms.Label labelAllAmount;
+        private System.Windows.Forms.Label labelFullAmount;
         private System.Windows.Forms.DataGridViewButtonColumn Del;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
@@ -488,8 +513,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.Label labelAllDiscount;
-        private System.Windows.Forms.Label labelAllAmount;
+        private System.Windows.Forms.TextBox textFullDiscount;
     }
 }
 

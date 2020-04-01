@@ -213,6 +213,19 @@ namespace SaleOrderDesktopApp
             }
         }
 
+        private void CalculateFullTotal()
+        {
+            try
+            {
+                labelFullAmount.Text = labelAllAmount.Text;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         #endregion
 
@@ -326,6 +339,7 @@ namespace SaleOrderDesktopApp
 
                             dgSODetails.Rows[e.RowIndex].Cells[8].Value = _Amount.ToString();
                             CalculateAllAmount();
+                            CalculateFullTotal();
                         }
                         else if (dgSODetails.CurrentCell.ColumnIndex == 7)
                         {
@@ -345,6 +359,7 @@ namespace SaleOrderDesktopApp
                             dgSODetails.Rows[e.RowIndex].Cells[8].Value = _FinalReducedAmount.ToString();
                             CalculateAllDiscount();
                             CalculateAllAmount();
+                            CalculateFullTotal();
                         }
 
                     }
@@ -388,5 +403,18 @@ namespace SaleOrderDesktopApp
 
         #endregion
 
+        private void textFullDiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 ) ///todo tab key add
+            {
+                decimal FullAmt = 0,FullDiscount = 0;
+                decimal.TryParse(labelFullAmount.Text,out FullAmt);
+                decimal.TryParse(textFullDiscount.Text, out FullDiscount);
+
+                FullAmt = FullAmt - FullDiscount;
+
+                labelFullAmount.Text = FullAmt.ToString();
+            }
+        }
     }
 }
